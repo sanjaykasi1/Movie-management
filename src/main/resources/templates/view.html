@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View Page</title>
+</head>
+<body> 
+
+
+
+	<h2>MOVIE LIST</h2>
+	<table border =1>
+	<tr>
+		<th>Movie ID: </th>
+		<th>Movie Title: </th>
+		<th>Movie Description: </th>
+		<th>Movie duration: </th>
+		<th> Release year: </th>
+		<th>Actor List: </th>
+	
+	</tr>
+	
+	<tr th:each ="m : ${movies}">
+		<td th:text = "${m.movieId}"></td>
+		<td th:text = "${m.movieTitle}"></td>
+		<td th:text = "${m.description}"></td>
+		<td th:text = "${m.movieDuration}"></td>
+		<td th:text = "${m.releaseDate}"></td>
+		
+		<td>
+			<ul>
+				<li th:each="i : ${actors}" th:value="${i.actorId}" th:text="${i.actorName +' - ' + i.role}" ></li>
+			</ul>
+		</td>
+		
+		<td><a th:href="@{'/updateMovie/'+${m.movieId}}">Update</a>
+			&nbsp;
+		<a th:href="@{'/deleteMovie/'+${m.movieId}}">Delete</a>
+		
+		</td>
+	</tr>
+	</table>
+	
+	
+	
+	
+	
+	<h2>GENRE LIST</h2>
+	<table border = 1>
+	<tr>
+		<th>Genre ID: </th>
+		<th>Genre Name: </th>
+	
+	</tr>
+	
+	<tr th:each ="g : ${genres}">
+		<td th:text = "${g.genreId}"></td>
+		<td th:text = "${g.genreName}"></td>
+		<td><a th:href="@{'/updateGenre/'+${g.genreId}}">Update</a>
+		&nbsp;
+		<a th:href="@{'/deleteGenre/'+${g.genreId}}">Delete</a></td>
+	</tr>
+	</table>
+	
+	
+	
+	
+	<h2>ACTOR LIST</h2>
+	<table border = 1>
+	<tr>
+		<th>Actor ID: </th>
+		<th>Actor Name: </th>
+		<th>Actor Role: </th>
+	
+	</tr>
+	
+	<tr th:each ="a : ${actors}">
+		<td th:text = "${a.actorId}"></td>
+		<td th:text = "${a.actorName}"></td>
+		<td th:text = "${a.role}"></td>
+		<td><a th:href="@{/updateActor/{id}(id=${a.actorId})}">Update</a>
+				&nbsp;
+			<a th:href="@{'/deleteActor/'+${a.actorId}}">Delete</a>
+		</td>
+	</tr>
+	</table>
+	
+	<br></br>
+	<br><a href = "home" >Go back to menu</a></br>
+	
+</body>
+</html>

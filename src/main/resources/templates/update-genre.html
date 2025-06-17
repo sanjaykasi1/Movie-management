@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Genre</title>
+</head>
+<body>
+	<form action="#" th:action="@{/updateGenre}" th:object="${genre}" method ="post">
+		<!-- here is my request for genreid -->
+		<input type="hidden" th:field="*{genreId}" />
+		<input type ="text" th:field="*{genreName}">
+		<button type ="submit"> Update Genre</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Actor</title>
+</head>
+<body>
+	<form action="#" th:action="@{/updateActor}" th:object="${actor}" method ="post">
+		<table>
+		<tr>
+			<td> <input type ="hidden" th:field="*{actorId}" /> </td>
+		</tr>
+		<tr><td>Name:</td>
+			<td> <input type ="text" th:field="*{actorName}"/> </td>
+		</tr>
+		<tr><td>Role:</td>
+			<td> <input type ="text" th:field="*{role}"/> </td>
+		</tr>
+		<tr>
+				<td>Movie:</td>
+				<td>
+						<select name = "movieId" required >
+						<option th:each="i : ${movies}" th:value="${i.movieId}" th:text="${i.movieTitle}" ></option>
+						</select>
+				</td>
+		</tr>
+		
+		</table>
+		<br></br>
+		<button type ="submit"> Update Actor</button>
+
+</form>
+
+</body>
+</html>

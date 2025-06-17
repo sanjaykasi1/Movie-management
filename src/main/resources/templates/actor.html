@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Actor Page</title>
+</head>
+<body>
+<form method="post" action="/saveActor" modelAttribute="${actor}">
+	<table>
+			<tr>
+				<td>Name:</td>
+				<td><input name="actorName"  /></td>
+			</tr>
+			<tr>
+				<td>Role:</td>
+				<td><input name="role"  /></td>
+			</tr>
+			<tr>
+				<td>Movie:</td>
+				<td>
+					<select name = "mId" required>
+						<option th:each="i : ${movies}" th:value="${i.movieId}" th:text="${i.movieTitle}"></option>
+					</select>
+				</td>
+			</tr>
+			
+	</table>
+	<input type="submit" value="Save Actor" />
+</form>
+</body>
+</html>
+

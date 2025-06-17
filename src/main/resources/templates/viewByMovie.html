@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View By Movie Page</title>
+</head>
+<body> 
+
+	<h2>MOVIE LIST</h2>
+	<table border =1>
+	<tr>
+		<th>Movie ID: </th>
+		<th>Movie Title: </th>
+		<th>Movie Description: </th>
+		<th>Movie duration: </th>
+		<th>Movie Release year: </th>
+		<th>Genre</th>
+		<th>Actor List</th>
+	
+	</tr>
+	
+	<tr th:each ="m : ${movies}">
+		<td th:text = "${m.movieId}"></td>
+		<td th:text = "${m.movieTitle}"></td>
+		<td th:text = "${m.description}"></td>
+		<td th:text = "${m.movieDuration}"></td>
+		<td th:text = "${m.releaseDate}"></td>
+		<td th:text = "${genre.genreName}"></td>
+		<td>
+			<ul>
+				<li th:each="i : ${actors}" th:value="${i.actorId}" th:text="${i.actorName +' - ' + i.role}" ></li>
+			</ul>
+		</td>
+	</tr>
+
+	</tr>
+	</table>	
+	<br></br>
+	<br><a href = "home" >Go back to menu</a></br>
+	
+</body>
+</html>

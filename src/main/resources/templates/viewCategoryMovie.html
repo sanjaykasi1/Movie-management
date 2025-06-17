@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border = 1>
+		<tr>
+			<th>Movie name:</th>
+			<th>description:</th>
+			<th>Runtime:</th>
+			<th>Release Year:</th>
+		</tr>
+		
+		<tr th:each="i : ${movies}">
+			<td th:text="${i.movieTitle}"></td>
+			<td th:text="${i.description}"></td>
+			<td th:text="${i.movieDuration}"></td>
+			<td th:text="${i.releaseDate}"></td>
+			
+		</tr>
+		
+	
+	
+	</table>
+	
+	<a href="/home">Go Back</a>
+</body>
+</html>
